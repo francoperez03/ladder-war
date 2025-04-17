@@ -1,0 +1,14 @@
+@keyframes drop-hard {
+  from {
+    transform: translateY(-900px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.btn-drop {
+  animation: drop-hard 1.5s forwards;
+}
