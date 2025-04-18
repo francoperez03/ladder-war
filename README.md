@@ -1,4 +1,6 @@
-# 🧱 Ladder War — A Privacy-Preserving ZK Game on Aztec
+
+
+![alt text](image.png)# 🧱 Ladder War — A Privacy-Preserving ZK Game on Aztec
 
 **Ladder War** is a zero-knowledge strategy game where three prisoners compete to escape a high-security facility.  
 They each climb their own ladder toward a helicopter waiting at the top — but only one makes it out.
