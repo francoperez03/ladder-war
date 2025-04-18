@@ -1,3 +1,29 @@
+# 🧱 Ladder War — A Privacy-Preserving ZK Game on Aztec
+
+**Ladder War** is a zero-knowledge strategy game where three prisoners compete to escape a high-security facility.  
+They each climb their own ladder toward a helicopter waiting at the top — but only one makes it out.
+
+This game is built on **Aztec's private smart contract layer**, leveraging encrypted notes, private state, and selective disclosures.  
+Players interact through `play_turn` actions that remain private, while key events are selectively revealed on-chain.
+
+---
+
+## 🎮 Gameplay Overview
+
+- Each game consists of **three players** starting at step 0.
+- On each turn, a player can either:
+  - 🪜 **Climb** their ladder one step, or
+  - 🪓 **Sabotage** an opponent, knocking them down one step.
+- The state of other players remains **fully private**, except for periodic **disclosures every 5 turns**.
+- The first player to reach step 20 may claim victory — but they must **prove** it with a valid private proof.
+- A backend **Turn Keeper API** helps coordinate turn advancement and triggers the periodic disclosures.
+
+This repo includes:
+- 🧠 A Noir-based smart contract (`LadderWar`) implementing the full game logic
+- ⚙️ An API service for managing turns and disclosures
+- 🕹 A React frontend that lets each player connect, choose a character, and play their moves privately
+
+
 ## 📋 Functions and Associated Events
 
 | **Function**                    | **Event**                                        | **Type**     |
