@@ -1,3 +1,4 @@
+/* Ya existente */
 @keyframes drop-hard {
   from {
     transform: translateY(-900px);
@@ -8,7 +9,16 @@
     opacity: 1;
   }
 }
-
 .btn-drop {
   animation: drop-hard 1.5s forwards;
+}
+
+/* ✨ Flash brillante */
+@keyframes flash {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+}
+.btn-flash {
+  animation: flash 0.5s ease-in-out;
 }

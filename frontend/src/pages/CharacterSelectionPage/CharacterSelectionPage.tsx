@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { getDeployedTestAccountsWallets } from "@aztec/accounts/testing";
 import { PXEFactory } from "../../factories/PXEFactory";
 
+
+
 const CharacterSelectionPage = () => {
   const [pxeConnected, setPxeConnected] = useState(false);
   const [accounts, setAccounts] = useState<AztecAddress[]>([]);
