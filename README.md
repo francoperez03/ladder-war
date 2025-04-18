@@ -23,6 +23,28 @@ This repo includes:
 - ⚙️ An API service for managing turns and disclosures
 - 🕹 A React frontend that lets each player connect, choose a character, and play their moves privately
 
+### 🔍 Strategic Disclosure Every 5 Turns
+
+Ladder War introduces a **partial information mechanic** designed to balance privacy with strategic tension.
+
+Every 5 turns, the contract emits a `DisclosureRevealed` event, which publicly reveals **whether any player is currently within the last 5 steps** of the ladder (steps 15 to 19), but **does not disclose who**. This adds pressure and encourages tactical moves like sabotage or acceleration.
+
+#### Example:
+At Turn 10:
+- `📣 DisclosureRevealed { turn: 10, disclosed: true }`
+- This tells all players that **someone is getting close to victory**, but not who.
+- It raises the stakes, potentially triggering attacks or desperate climbs.
+
+This mechanic enhances game theory:
+- **Players must infer** who is likely to be near the top.
+- Encourages **risk-based decisions** without sacrificing full privacy.
+
+Only upon a valid victory claim is the winner’s identity publicly revealed via:
+- `📣 VictoryClaimed { player }`
+- `📣 GameEnded { winner }`
+
+This mechanism helps maintain suspense and balances information asymmetry while leveraging the privacy guarantees of Aztec.
+
 
 ## 📋 Functions and Associated Events
 
