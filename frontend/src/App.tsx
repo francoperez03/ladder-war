@@ -1,33 +1,24 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import bg from "./assets/background.png";
 import music from "./assets/music.mp3";
 import startButton from "./assets/start_button.png";
-import { useNavigate } from "react-router-dom";
 
 export default function App() {
   const [animateOnce, setAnimateOnce] = useState(true);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const audio = new Audio(music);
     audio.loop = true;
     audio.volume = 0.8;
-    audioRef.current = audio;
+    audio.play().catch(() => {});
   }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => setAnimateOnce(false), 1500);
     return () => clearTimeout(timeout);
   }, []);
-
-  const handleStart = () => {
-    audioRef.current?.play().catch(console.error);
-    console.log("Start clicked");
-    navigate("/select");
-  };
 
   return (
     <main
@@ -48,13 +39,13 @@ export default function App() {
           style={{
             marginTop: "40rem",
             marginBottom: "10rem",
-            marginLeft: "40%",
+            marginLeft: "35rem",
             marginRight: "auto",
-            maxWidth: "280px",
-            maxHeight: "100px",
-            objectFit: "contain",
+            width: "280px",
           }}
-          onClick={handleStart}
+          onClick={() => {
+            console.log("Start clicked");
+          }}
         />
       </section>
     </main>
